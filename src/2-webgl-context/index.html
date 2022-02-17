@@ -6,8 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebGL Get Context</title>
 </head>
-<body onload="main()">
+<body>
 <canvas id="webgl" width="400" height="400"></canvas>
-<script src="./draw.js"></script>
+<script>
+  const canvas = document.querySelector('#webgl');
+  const gl = canvas.getContext('webgl');
+
+  if (gl) {
+    gl.clearColor(0, 1, 0, 1);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+  } else {
+    console.log('WebGL not supported');
+  }
+
+</script>
 </body>
 </html>
